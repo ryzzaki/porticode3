@@ -1,4 +1,4 @@
-# porticode3
+# porticode3 / SlideShowExpress Bot V3
 <b>
 This is a YouTube bot that uploads videos based on the entered keyword / topic.
 </b>
