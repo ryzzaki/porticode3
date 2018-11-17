@@ -19,5 +19,5 @@ python upload_video.py --file="file location"
 </br>
 </br>
 <b>
-This bot was created during the events of a University College London based Major League Hacking (MLH) / Hackathon known as "Porticode 3.0".
+This bot was created during the events of the University College London based Major League Hacking (MLH) / Hackathon known as "Porticode 3.0".
 </b>
