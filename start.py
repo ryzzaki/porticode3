@@ -1,9 +1,18 @@
 import research as rs
+import edit
 
 class Start:
 
-    def __init__(self):
-        self.topic = input("Enter Topic: ")
-    
-    def research(self):
-        rs.download()
+    def __init__(self, topic=rs.query):
+        self.topic = topic
+
+    def return_topic(self):
+        return self.topic
+
+if __name__ == "__main__":
+    edit = edit.Editor()
+    st = Start(rs.query)
+    edit.open_json()
+    edit.path_array()
+    edit.edit_clip_img()
+    edit.concatenate()
