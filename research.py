@@ -14,7 +14,7 @@ def get_soup(url,header):
     return BeautifulSoup(urllib.request.urlopen(
         urllib.request.Request(url,headers=header)), 'html.parser')
 
-query = input("Enter the query - please use a single word for now "i.e. bread": ").lower().strip()
+query = input("Enter the query - please use a single word for now 'i.e. bread': ").lower().strip()
 search_word = query.replace(" ", "_")
 url="http://www.bing.com/images/search?q=" + search_word + "&FORM=HDRSC2"
 DIR='Pictures'
