@@ -15,7 +15,8 @@ def get_soup(url,header):
         urllib.request.Request(url,headers=header)), 'html.parser')
 
 query = input("Enter the query: ").lower().strip()
-url="http://www.bing.com/images/search?q=" + query + "&FORM=HDRSC2"
+search_word = query.replace(" ", "_")
+url="http://www.bing.com/images/search?q=" + search_word + "&FORM=HDRSC2"
 DIR='Pictures'
 header={'User-Agent':"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"}
 soup = get_soup(url,header)
@@ -39,7 +40,7 @@ print("there are total" , len(ActualImages),"images")
 if not os.path.exists(DIR):
     os.mkdir(DIR)
 
-DIR = os.path.join(DIR, query.split()[0])
+DIR = os.path.join(DIR, search_word.split()[0])
 
 if not os.path.exists(DIR):
     os.mkdir(DIR)
