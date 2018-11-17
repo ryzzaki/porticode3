@@ -12,7 +12,7 @@ def get_soup(url,header):
         urllib.request.Request(url,headers=header)), 'html.parser')
 query = input("Enter the query: ").lower().strip()
 url="http://www.bing.com/images/search?q=" + query + "&FORM=HDRSC2"
-
+fileName = []
 DIR='Pictures'
 
 header={'User-Agent':"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"}
@@ -27,6 +27,7 @@ for a in soup.find_all("a",{"class":"iusc"}):
     m = json.loads(a["m"])
     murl = m["murl"]
     image_name = urllib.parse.urlsplit(murl).path.split("/")[-1]
+    fileName.append(image_name)
     print(image_name)
     ActualImages.append((image_name, turl, murl))
 
