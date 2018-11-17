@@ -1,6 +1,6 @@
 # porticode3 / SlideShowExpress Bot V3 / SSE BOT V3
 <b>
-This is a YouTube bot that uploads videos based on the entered keyword / topic.
+This is a YouTube bot that researches topics, self edits, and uploads videos based on the entered keyword.
 </b>
 
 <br>
