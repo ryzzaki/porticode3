@@ -6,7 +6,7 @@ import json
 st = start.Start()
 
 class Editor:
-    
+
     def __init__(self):
         self.topic = st.return_topic()
         self.default_path = "Pictures/" + self.topic
@@ -14,7 +14,7 @@ class Editor:
         self.name_array = []
         self.selected_files = []
         self.edited_files = []
-    
+
     def open_json(self):
         with open('nameray.json') as f:
             self.name_array = json.load(f)
@@ -37,9 +37,9 @@ class Editor:
     
     def edit_clip_img(self):
         for file in self.selected_files:
-            clip = mp.ImageClip(file, duration=10).add_mask().rotate(self.generate_rand_rotate())
+            clip = mp.ImageClip(file, duration=10).add_mask().rotate(self.generate_rand_rotate())     
             self.edited_files.append(clip)
     
     def concatenate(self):
         merged = mp.concatenate_videoclips(self.edited_files)
-        merged.write_videofile("upload.mp4",fps=24, codec='mpeg4')
+        merged.write_videofile("upload.mp4",fps=24)
