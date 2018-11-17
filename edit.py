@@ -14,10 +14,15 @@ class Editor:
         self.name_array = []
         self.selected_files = []
         self.edited_files = []
+        self.audio_paths = ["Cetus", "Why we lose", "On and On", "Time Leap"]
 
     def open_json(self):
         with open('nameray.json') as f:
             self.name_array = json.load(f)
+    
+    def generate_rand_song(self):
+        num = random.randrange(0, 3)
+        return num
 
     def generate_rand_rotate(self):
         num = random.randrange(0, 180)
@@ -42,5 +47,7 @@ class Editor:
             self.edited_files.append(clip)
     
     def concatenate(self):
+        audio = "audio/" + self.audio_paths[self.generate_rand_song()] + ".mp3"
         merged = mp.concatenate_videoclips(self.edited_files)
+        merged = merged.set_audio(audio.set(merged))
         merged.write_videofile("upload.mp4",fps=24)
