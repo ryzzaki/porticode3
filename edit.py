@@ -37,7 +37,8 @@ class Editor:
     
     def edit_clip_img(self):
         for file in self.selected_files:
-            clip = mp.ImageClip(file, duration=10).add_mask().rotate(self.generate_rand_rotate())     
+            # clip = mp.ImageClip(file, duration=10).add_mask().rotate(self.generate_rand_rotate())
+            clip = mp.ImageClip(file, duration=5)
             self.edited_files.append(clip)
     
     def concatenate(self):
