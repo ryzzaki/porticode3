@@ -47,7 +47,7 @@ class Editor:
             self.edited_files.append(clip)
     
     def concatenate(self):
-        audio = "audio/" + self.audio_paths[self.generate_rand_song()] + ".mp3"
+        audio = mp.AudioFileClip("audio/" + self.audio_paths[self.generate_rand_song()] + ".mp3")
         merged = mp.concatenate_videoclips(self.edited_files)
         merged = merged.set_audio(audio.set(merged))
         merged.write_videofile("upload.mp4",fps=24)
