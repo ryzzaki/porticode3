@@ -14,14 +14,14 @@ class Editor:
         self.name_array = []
         self.selected_files = []
         self.edited_files = []
-        self.audio_paths = ["Cetus", "Why we lose", "On and On", "Time Leap"]
+        self.audio_paths = ["Cetus", "Why we lose", "On and On", "Time Leap", "Blank", "Feel Good", "Hellcat", "Heroes Tonight", "Invincible", "Summer Tune"]
 
     def open_json(self):
         with open('nameray.json') as f:
             self.name_array = json.load(f)
 
     def generate_rand_song(self):
-        num = random.randrange(0, 3)
+        num = random.randrange(0, len(self.audio_paths))
         return num
 
     def generate_rand_rotate(self):
