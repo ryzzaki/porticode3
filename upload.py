@@ -6,6 +6,7 @@ import os
 import random
 import sys
 import time
+import research as rs
 
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
@@ -13,7 +14,6 @@ from googleapiclient.http import MediaFileUpload
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.file import Storage
 from oauth2client.tools import argparser, run_flow
-
 
 # Explicitly tell the underlying HTTP transport library not to retry, since
 # we are handling retry logic ourselves.
@@ -156,11 +156,11 @@ def resumable_upload(insert_request):
       print("Sleeping %f seconds and then retrying..." % sleep_seconds)
       time.sleep(sleep_seconds)
 
-if __name__ == '__main__':
-  argparser.add_argument("--file", required=True, help="Video file to upload")
-  argparser.add_argument("--title", help="Video title", default="Test Title")
+def upload_me():
+  argparser.add_argument("--file", required=False, help="Video file to upload", default="upload.mp4")
+  argparser.add_argument("--title", help="Video title", default=rs.query)
   argparser.add_argument("--description", help="Video description",
-    default="Test Description")
+    default="This is a video about " + rs.query)
   argparser.add_argument("--category", default="22",
     help="Numeric video category. " +
       "See https://developers.google.com/youtube/v3/docs/videoCategories/list")
